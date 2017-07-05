@@ -1,0 +1,60 @@
+
+ Performance counter stats for './mandelbrot_seq -2.500 1.500 -2.000 2.000 2048':
+
+       1087.317852      task-clock (msec)         #    1.000 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+            41,010      page-faults               #    0.038 M/sec                  
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+   <not supported>      L1-dcache-loads          
+   <not supported>      L1-dcache-load-misses    
+   <not supported>      LLC-loads                
+   <not supported>      LLC-load-misses          
+
+       1.087544721 seconds time elapsed
+
+
+ Performance counter stats for 'mpirun ./mandelbrot_mpi -2.500 1.500 -2.000 2.000 2048':
+
+       1121.032658      task-clock (msec)         #    0.999 CPUs utilized          
+                29      context-switches          #    0.026 K/sec                  
+                 2      cpu-migrations            #    0.002 K/sec                  
+            42,680      page-faults               #    0.038 M/sec                  
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+   <not supported>      L1-dcache-loads          
+   <not supported>      L1-dcache-load-misses    
+   <not supported>      LLC-loads                
+   <not supported>      LLC-load-misses          
+
+       1.121635559 seconds time elapsed
+
+
+ Performance counter stats for 'mpirun ./mandelbrot_mpi_omp -2.500 1.500 -2.000 2.000 8 2048':
+
+       1257.221024      task-clock (msec)         #    2.909 CPUs utilized          
+                37      context-switches          #    0.029 K/sec                  
+                 8      cpu-migrations            #    0.006 K/sec                  
+            42,699      page-faults               #    0.034 M/sec                  
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+   <not supported>      L1-dcache-loads          
+   <not supported>      L1-dcache-load-misses    
+   <not supported>      LLC-loads                
+   <not supported>      LLC-load-misses          
+
+       0.432250746 seconds time elapsed
+
