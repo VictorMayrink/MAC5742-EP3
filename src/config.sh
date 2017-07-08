@@ -1,0 +1,1 @@
+mv ./hostfile /etc/hosts
