@@ -1,1 +1,1 @@
-mv ./hostfile /etc/hosts
+cat hostfile >> /etc/hosts
