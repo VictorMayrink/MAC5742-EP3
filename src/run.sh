@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#set -o xtrace
+set -o xtrace
 
 MEASUREMENTS=1
 SIZE=2048

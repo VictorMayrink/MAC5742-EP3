@@ -200,13 +200,14 @@ void master_mandelbrot(int ntasks, int taskid) {
 
     //Buffer to store messages
     int buf_size = ((int) ceil(image_size/ntasks)) * image_size;
+    int* buffer = malloc(buf_size * sizeof(int));
     int buffer[buf_size];
     int counter, ix, iy;
     //Receive messages
     for (int worker = 0; worker < ntasks; worker++) {
         if (worker != taskid) {
             counter = 0;
-            MPI_Recv(&buffer, buf_size, MPI_INT, worker, worker, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            MPI_Recv(buffer, buf_size, MPI_INT, worker, worker, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             for (iy = worker; iy < image_size; iy+=ntasks) {
                 for (ix = 0; ix < image_size; ix++) {
                     update_rgb_buffer(buffer[image_size*counter + ix], ix, iy);
@@ -222,9 +223,10 @@ void worker_mandelbrot(int ntasks, int taskid) {
 
     //Local buffer
     int buf_size = ((int) ceil(image_size/ntasks)) * image_size;
-    int local_buffer[buf_size];
+    int* local_buffer;
     int tid;
 
+    local_buffer = malloc(buf_size * sizeof(int));
     #pragma omp parallel private(nthreads, tid)
     {
 
@@ -287,7 +289,7 @@ void worker_mandelbrot(int ntasks, int taskid) {
 
     };
 
-    MPI_Send(&local_buffer, buf_size, MPI_INT, MASTER, taskid, MPI_COMM_WORLD);
+    MPI_Send(local_buffer, buf_size, MPI_INT, MASTER, taskid, MPI_COMM_WORLD);
 
 };
 
