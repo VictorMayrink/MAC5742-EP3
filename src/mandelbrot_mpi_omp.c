@@ -274,7 +274,6 @@ void worker_mandelbrot(int ntasks, int taskid) {
                     zy_squared = zy * zy;
                 };
 
-                printf("%d\n",(iy-taskid)/ntasks );
                 local_buffer[(image_size * (iy-taskid)/ntasks) + ix] = iteration;
 
             };
