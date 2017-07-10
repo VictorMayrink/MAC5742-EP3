@@ -2,7 +2,7 @@
 N_NODES=$1
 N_CORES=$2
 N_MEASUREMENTS=10
-SIZE=512
+SIZE=8192
 set -o xtrace
 #Create folders
 if [ -d ./results ]; then
