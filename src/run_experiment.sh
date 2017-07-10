@@ -14,10 +14,10 @@ if [ -d ./pictures ]; then
     rm -rf ./pictures
 fi
 mkdir pictures
-./run_config full $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
-./run_config seahorse $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
-./run_config elephant $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
-./run_config triple_spiral $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
+./run_config.sh full $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
+./run_config.sh seahorse $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
+./run_config.sh elephant $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
+./run_config.sh triple_spiral $SIZE $N_NODES $N_CORES $N_MEASUREMENTS
 
 
 
