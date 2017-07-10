@@ -1,9 +1,9 @@
-$NAME=$1
-$SIZE=$2
-$N_NODES=$3
-$N_CORES=$4
-$N_MEASUREMENTS=$5
-$HOST_STR="instance-1"
+NAME=$1
+SIZE=$2
+N_NODES=$3
+N_CORES=$4
+N_MEASUREMENTS=$5
+HOST_STR="instance-1"
 for ((r = 2; r <= N_NODES; r++)); do
     INSTANCE_STR=",instance-$r"
     HOST_STR=$HOST_STR$INSTANCE_STR
