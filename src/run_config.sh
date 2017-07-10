@@ -36,13 +36,13 @@ then
     y2=0.754
 fi
 LOG_NAME=$NAME".log"
-perf stat -r $N_MEASUREMENTS ./mandelbrot_seq $x1 $x2 $y1 $y2 $SIZE >> $LOG_NAME 2>&1
+perf stat -r $N_MEASUREMENTS ./mandelbrot_seq $x1 $x2 $y1 $y2 $SIZE >> results/$LOG_NAME 2>&1
 mv output.ppm pictures/$NAME"_seq.ppm"
 
-perf stat -r $N_MEASUREMENTS mpirun -host $HOST_STR ./mandelbrot_mpi $x1 $x2 $y1 $y2 $SIZE >> $LOG_NAME 2>&1
+perf stat -r $N_MEASUREMENTS mpirun -host $HOST_STR ./mandelbrot_mpi $x1 $x2 $y1 $y2 $SIZE >> results/$LOG_NAME 2>&1
 mv output.ppm pictures/$NAME"_mpi.ppm"
 
-perf stat -r $N_MEASUREMENTS mpirun -host $HOST_STR ./mandelbrot_mpi_omp $x1 $x2 $y1 $y2 $N_CORES $SIZE >> $LOG_NAME 2>&1
+perf stat -r $N_MEASUREMENTS mpirun -host $HOST_STR ./mandelbrot_mpi_omp $x1 $x2 $y1 $y2 $N_CORES $SIZE >> results/$LOG_NAME 2>&1
 mv output.ppm pictures/$NAME"_mpi_omp.ppm"
 
 DIFF=$(diff pictures/$NAME"_seq.ppm" pictures/$NAME"_mpi.ppm") 
