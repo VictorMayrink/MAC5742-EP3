@@ -26,8 +26,8 @@ elif [ "$NAME" == "elephant" ]
 then
     x1=0.175
     x2=0.375
-    x3=-0.100
-    x4=0.100
+    y1=-0.100
+    y2=0.100
 elif [ "$NAME" == "triple_spiral" ]
 then
     x1=-0.188
@@ -36,13 +36,13 @@ then
     y2=0.754
 fi
 LOG_NAME=$NAME".log"
-perf stat -r $N_MEASUREMENTS -d ./mandelbrot_seq $x1 $x2 $y1 $y2 $SIZE >> $LOG_NAME 2>&1
+perf stat -r $N_MEASUREMENTS ./mandelbrot_seq $x1 $x2 $y1 $y2 $SIZE >> $LOG_NAME 2>&1
 mv output.ppm pictures/$NAME"_seq.ppm"
 
-perf stat -r $N_MEASUREMENTS -d mpirun -host $HOST_STR ./mandelbrot_mpi $x1 $x2 $y1 $y2 $SIZE >> $LOG_NAME 2>&1
+perf stat -r $N_MEASUREMENTS mpirun -host $HOST_STR ./mandelbrot_mpi $x1 $x2 $y1 $y2 $SIZE >> $LOG_NAME 2>&1
 mv output.ppm pictures/$NAME"_mpi.ppm"
 
-perf stat -r $N_MEASUREMENTS -d mpirun -host $HOST_STR ./mandelbrot_mpi_omp $x1 $x2 $y1 $y2 $N_CORES $SIZE >> $LOG_NAME 2>&1
+perf stat -r $N_MEASUREMENTS mpirun -host $HOST_STR ./mandelbrot_mpi_omp $x1 $x2 $y1 $y2 $N_CORES $SIZE >> $LOG_NAME 2>&1
 mv output.ppm pictures/$NAME"_mpi_omp.ppm"
 
 DIFF=$(diff pictures/$NAME"_seq.ppm" pictures/$NAME"_mpi.ppm") 
