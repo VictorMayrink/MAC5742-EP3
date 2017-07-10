@@ -9,3 +9,6 @@ mandelbrot_mpi: mandelbrot_mpi.c
 
 mandelbrot_mpi_omp: mandelbrot_mpi_omp.c
 	mpicc -o mandelbrot_mpi_omp -std=c11 mandelbrot_mpi_omp.c -fopenmp -lm
+
+clean:
+	rm mandelbrot_seq mandelbrot_mpi mandelbrot_mpi_omp
