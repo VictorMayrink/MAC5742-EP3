@@ -1,3 +1,4 @@
+set -o xtrace
 NAME=$1
 SIZE=$2
 N_NODES=$3
