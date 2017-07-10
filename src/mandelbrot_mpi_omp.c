@@ -201,7 +201,6 @@ void master_mandelbrot(int ntasks, int taskid) {
     //Buffer to store messages
     int buf_size = ((int) ceil(image_size/ntasks)) * image_size;
     int* buffer = malloc(buf_size * sizeof(int));
-    int buffer[buf_size];
     int counter, ix, iy;
     //Receive messages
     for (int worker = 0; worker < ntasks; worker++) {
@@ -297,7 +296,7 @@ void worker_mandelbrot_seq(int ntasks, int taskid) {
 
     //Local buffer
     int buf_size = ((int) ceil(image_size/ntasks)) * image_size;
-    int local_buffer[buf_size];
+    int* local_buffer = malloc(buf_size * sizeof(int));
 
     int counter = 0;
 
@@ -345,7 +344,7 @@ void worker_mandelbrot_seq(int ntasks, int taskid) {
 
     };
 
-    MPI_Send(&local_buffer, buf_size, MPI_INT, MASTER, taskid, MPI_COMM_WORLD);
+    MPI_Send(local_buffer, buf_size, MPI_INT, MASTER, taskid, MPI_COMM_WORLD);
 
 };
 
