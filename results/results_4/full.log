@@ -1,0 +1,51 @@
+
+ Performance counter stats for './mandelbrot_seq -2.500 1.500 -2.000 2.000 8192' (10 runs):
+
+      17420.808850      task-clock (msec)         #    0.941 CPUs utilized            ( +-  0.31% )
+                58      context-switches          #    0.003 K/sec                    ( +-  5.83% )
+                 3      cpu-migrations            #    0.000 K/sec                    ( +- 15.31% )
+            655410      page-faults               #    0.038 M/sec                    ( +-  0.00% )
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+
+      18.521555395 seconds time elapsed                                          ( +-  0.53% )
+
+Warning: Permanently added 'instance-3,10.128.0.4' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-4,10.128.0.5' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-2,10.128.0.3' (ECDSA) to the list of known hosts.
+
+ Performance counter stats for 'mpirun -host instance-1,instance-2,instance-3,instance-4 ./mandelbrot_mpi -2.500 1.500 -2.000 2.000 8192' (10 runs):
+
+       8706.862414      task-clock (msec)         #    0.810 CPUs utilized            ( +-  0.26% )
+               257      context-switches          #    0.030 K/sec                    ( +- 22.61% )
+                23      cpu-migrations            #    0.003 K/sec                    ( +-  4.80% )
+            674608      page-faults               #    0.077 M/sec                    ( +-  0.00% )
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+
+      10.754121939 seconds time elapsed                                          ( +-  1.53% )
+
+
+ Performance counter stats for 'mpirun -host instance-1,instance-2,instance-3,instance-4 ./mandelbrot_mpi_omp -2.500 1.500 -2.000 2.000 2 8192' (10 runs):
+
+      10182.964725      task-clock (msec)         #    1.024 CPUs utilized            ( +-  0.41% )
+               362      context-switches          #    0.036 K/sec                    ( +- 30.93% )
+                28      cpu-migrations            #    0.003 K/sec                    ( +-  4.54% )
+            674608      page-faults               #    0.066 M/sec                    ( +-  0.00% )
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+
+       9.948554774 seconds time elapsed                                          ( +-  1.40% )
+

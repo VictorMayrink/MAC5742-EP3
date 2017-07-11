@@ -1,0 +1,23 @@
+Warning: Permanently added 'instance-8,10.128.0.9' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-7,10.128.0.8' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-3,10.128.0.4' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-2,10.128.0.3' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-4,10.128.0.5' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-6,10.128.0.7' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'instance-5,10.128.0.6' (ECDSA) to the list of known hosts.
+
+ Performance counter stats for 'mpirun -host instance-1,instance-2,instance-3,instance-4,instance-5,instance-6,instance-7,instance-8 ./mandelbrot_mpi -2.500 1.500 -2.000 2.000 8192' (10 runs):
+
+       9080.959101      task-clock (msec)         #    0.795 CPUs utilized            ( +-  1.38% )
+               560      context-switches          #    0.062 K/sec                    ( +-  4.36% )
+                 0      cpu-migrations            #    0.000 K/sec                  
+            667943      page-faults               #    0.074 M/sec                    ( +-  0.00% )
+   <not supported>      cycles                   
+   <not supported>      stalled-cycles-frontend  
+   <not supported>      stalled-cycles-backend   
+   <not supported>      instructions             
+   <not supported>      branches                 
+   <not supported>      branch-misses            
+
+      11.427945746 seconds time elapsed                                          ( +-  1.05% )
+
